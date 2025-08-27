@@ -1,0 +1,30 @@
+body {
+    background-image: url(img/1.webp);
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 3.2rem;
+    color: #ffcb1f;
+    -webkit-text-stroke: 2.5px #23272a;
+}
+
+img {
+    width: 300px;
+}
+
+h3 {
+    font-weight: 800;
+    color: #ffcb1f;
+    -webkit-text-stroke: 1.5px #23272a;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
