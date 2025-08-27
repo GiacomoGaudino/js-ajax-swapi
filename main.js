@@ -41,7 +41,7 @@ fetch(api_url)
                     fetch(film)
                         .then((res => res.json()))
                         .then((filmData) => {
-                            console.log("film", name, filmData);
+                            console.log(name, "film", filmData.title);
                         })
                 })
             }
@@ -50,7 +50,7 @@ fetch(api_url)
                     fetch(starship)
                         .then((res => res.json()))
                         .then((starshipData) => {
-                            console.log("starship", name, starshipData);
+                            console.log(name, "starship", starshipData.name);
                         })
                 })
             }
