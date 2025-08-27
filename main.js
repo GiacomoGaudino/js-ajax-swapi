@@ -16,11 +16,11 @@ const api_url = "https://swapi.info/api/people";
 const rowEl = document.querySelector(".row");
 function fetchGet(urls, name, label, property) {
     if (urls.length > 0) {
-        urls.forEach(element => {
-            fetch(element)
+        urls.forEach(url => {
+            fetch(url)
                 .then((res => res.json()))
-                .then((elementData) => {
-                    console.log(name, label, elementData[property]);
+                .then((urlData) => {
+                    console.log(name, label, urlData[property]);
                 })
         })
     }
