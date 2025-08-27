@@ -14,6 +14,17 @@
 
 const api_url = "https://swapi.info/api/people";
 const rowEl = document.querySelector(".row");
+function fetchGet(urls, name, label, property) {
+    if (urls.length > 0) {
+        urls.forEach(element => {
+            fetch(element)
+                .then((res => res.json()))
+                .then((elementData) => {
+                    console.log(name, label, elementData[property]);
+                })
+        })
+    }
+}
 fetch(api_url)
     .then((res => res.json()))
     .then((characters) => {
@@ -36,25 +47,10 @@ fetch(api_url)
                 </div>
             </div>`;
             rowEl.appendChild(divEl)
-            if (character.films.length > 0) {
-                character.films.forEach(film => {
-                    fetch(film)
-                        .then((res => res.json()))
-                        .then((filmData) => {
-                            console.log(name, "film", filmData.title);
-                        })
-                })
-            }
-            if (character.starships.length > 0) {
-                character.starships.forEach(starship => {
-                    fetch(starship)
-                        .then((res => res.json()))
-                        .then((starshipData) => {
-                            console.log(name, "starship", starshipData.name);
-                        })
-                })
-            }
+            const filmUrl = character.films;
+            const starshipsUrl = character.starships;
+            fetchGet(filmUrl, name, "film:", "title");
+            fetchGet(starshipsUrl, name, "starship:", "name")
         });
     })
     .catch((error) => console.error(error.message))
-
