@@ -20,8 +20,9 @@ function fetchGet(urls, name, label, property) {
             fetch(url)
                 .then((res => res.json()))
                 .then((urlData) => {
-                    console.log(name, label, urlData[property]);
+                    console.log(name, label, urlData[property])
                 })
+                .catch((error) => console.error(error.message))
         })
     }
 }
